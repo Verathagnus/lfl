@@ -1,174 +1,393 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leofelis Instruments</title>
     <link rel="icon" type="image/x-icon" href="images/logo1.png">
-    
-
-    <!-- Font Awesome for Icons -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    
-
-    <!-- Link to external CSS -->
-
+    <script defer src="js/cdn.min.js"></script>
     <link rel="stylesheet" href="css/styles-out.css">
-
 </head>
 
-<body>
+<body class="bg-white font-[Poppins]">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full top-0 z-50 transition-colors duration-300"
+        x-data="{ isOpen: false, dropdownOpen: false, isScrolled: false }" x-init="() => {
+         const checkScroll = () => isScrolled = window.scrollY > 0;
+         window.addEventListener('scroll', checkScroll);
+         checkScroll();
+     }" :class="isScrolled ? 'bg-[#1a1a1d]' : 'bg-transparent'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo Section -->
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="flex items-center space-x-3">
+                        <img src="images/logo1.png" alt="Logo" class="h-10">
+                        <img src="images/logo2.png" alt="Brand" class="h-12">
+                    </div>
+                </div>
 
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <!-- Main Links -->
+                    <a href="#home" class="text-white hover:text-green-500 px-3 py-2 transition-colors">Home</a>
+                    <a href="#about" class="text-white hover:text-green-500 px-3 py-2 transition-colors">About</a>
+                    <a href="#rnd" class="text-white hover:text-green-500 px-3 py-2 transition-colors">R&D</a>
+                    <a href="#collaboration"
+                        class="text-white hover:text-green-500 px-3 py-2 transition-colors">Collaboration</a>
+                    <a href="#advisors" class="text-white hover:text-green-500 px-3 py-2 transition-colors">Advisory</a>
 
+                    <!-- Dropdown -->
+                    <div class="relative" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+                        <button class="text-white hover:text-green-500 px-3 py-2 flex items-center transition-colors">
+                            More
+                            <i class="fas fa-chevron-down ml-2 text-sm" :class="{ 'rotate-180': dropdownOpen }"></i>
+                        </button>
 
-<!-- Navigation Bar -->
+                        <!-- Dropdown Menu -->
+                        <div x-show="dropdownOpen" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#director" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Director</a>
+                            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Contact</a>
+                            <a href="#academia" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Academia</a>
+                            <a href="#service" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Service</a>
+                            <a href="#internship"
+                                class="block px-4 py-2 text-gray-700 hover:bg-green-100">Internship</a>
+                            <a href="#supporter" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Supporters</a>
+                            <a href="#career" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Career</a>
+                            <a href="#notice" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Notice</a>
+                            <a href="#product" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Products</a>
+                            <a href="#labs" class="block px-4 py-2 text-gray-700 hover:bg-green-100">Labs</a>
+                            <a href="#csr" class="block px-4 py-2 text-gray-700 hover:bg-green-100">CSR</a>
+                            <a href="#news" class="block px-4 py-2 text-gray-700 hover:bg-green-100">News</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="topnav">
-
-    <div class="logo-container">
-
-        <img src="images/logo1.png" alt="Logo 1" class="logo"> <!-- First logo -->
-
-        <img src="images/logo2.png" alt="Logo 2" class="logo"> <!-- Second logo -->
-
-    </div>
-
-    <div class="nav-links">
-
-        <a class="active" href="#home">Home</a>
-
-        <a href="#about">About</a>
-
-        <a href="#director">Director</a>
-
-        <a href="#contact">Contact</a>
-
-        <a href="#academia">Academia</a>
-
-        <a href="#service">Service</a>
-
-        <a href="#internship">Internship</a>
-
-        <a href="#advisors">Advisors</a>
-
-        <a href="#supporter">Our Supporter</a>
-
-        <a href="#collaboration">Collaboration</a>
-
-        <a href="#career">Career</a>
-
-        <a href="#notice">Notice</a>
-
-        <a href="#product">Product</a>
-
-        <a href="#rnd">R&D</a>
-
-        <a href="#labs">Lab's</a>
-
-        <a href="#csr">CSR</a>
-
-        <a href="#news">News</a>
-
-    </div>
-
-</div>
-
-
-
-
-
-<!-- Image Section -->
-
-<div class="image-section">
-
-    <h1></h1> <!-- Optional text overlay -->
-
-</div>
-
-
-
-<!-- Footer Section -->
-
-<footer class="custom-footer">
-
-    <div class="footer-container">
-
-        <!-- Company Information Section -->
-
-        <div class="footer-section company-info">
-
-            <h3>Leofelis Instruments</h3>
-
-            <p>Innovating Innovation</p>
-
-            <p>&copy; 2024 Leofelis Instruments Pvt. Ltd. All rights reserved.</p>
-
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="isOpen = !isOpen" class="text-white hover:text-green-500 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        
+        <!-- Mobile Menu -->
+        <div class="md:hidden" x-show="isOpen" @click.away="isOpen = false"
+            x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <div class="px-2 pt-2 pb-3 overflow-y-auto space-y-1 bg-[#1a1a1d]">
+                <a href="#home" class="text-white block px-3 py-2 hover:bg-green-500">Home</a>
+                <a href="#about" class="text-white block px-3 py-2 hover:bg-green-500">About</a>
+                <a href="#rnd" class="text-white block px-3 py-2 hover:bg-green-500">R&D</a>
+                <a href="#collaboration" class="text-white block px-3 py-2 hover:bg-green-500">Collaboration</a>
+                <a href="#advisors" class="text-white block px-3 py-2 hover:bg-green-500">Advisory</a>
 
-        <!-- Quick Links Section -->
+                <!-- Mobile Dropdown with Scroll -->
+                <div x-data="{ mobileDropdownOpen: false }" class="relative">
+                    <button @click="mobileDropdownOpen = !mobileDropdownOpen"
+                        class="w-full text-left text-white px-3 py-2 hover:bg-green-500 flex justify-between items-center">
+                        More
+                        <i class="fas fa-chevron-down text-sm" :class="{ 'rotate-180': mobileDropdownOpen }"></i>
+                    </button>
 
-<div class="footer-section quick-links">
+                    <div x-show="mobileDropdownOpen" class="pl-4 overflow-y-auto mobile-dropdown" x-collapse>
+                        <a href="#director" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Director</a>
+                        <a href="#contact" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Contact</a>
+                        <a href="#academia" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Academia</a>
+                        <a href="#service" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Service</a>
+                        <a href="#internship" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Internship</a>
+                        <a href="#supporter" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Supporters</a>
+                        <a href="#career" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Career</a>
+                        <a href="#notice" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Notice</a>
+                        <a href="#product" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Products</a>
+                        <a href="#labs" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Labs</a>
+                        <a href="#csr" class="block px-3 py-2 text-gray-300 hover:bg-green-500">CSR</a>
+                        <a href="#news" class="block px-3 py-2 text-gray-300 hover:bg-green-500">News</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <h3>Quick Links</h3>
+    <!-- Main Content Sections -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="image-section bg-cover bg-center h-screen flex justify-center ">
+            <div class="text-center bg-opacity-50 p-8 rounded-lg max-w-4xl mx-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white">
+                    Redefining Innovation Through Reverse Engineering
+                </h1>
+            </div>
+        </section>
 
-    <ul>
+        <!-- About Section -->
+        <section id="about" class="py-16 px-4 md:px-8 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Introduction</h3>
+                        <p class="text-gray-600">Leofelis Instruments Pvt. Ltd. specializes in engineering prototyping
+                            and innovative instrument development across defense, aerospace, fisheries, and agriculture
+                            sectors, providing prototyping solutions to support MSMEs and foster innovation.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Vision & Mission</h3>
+                        <p class="text-gray-600">To become India's leader in engineering prototyping and R&D, delivering
+                            innovative solutions through strategic collaborations and advanced technologies while
+                            fostering research and skill development.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Establishment</h3>
+                        <p class="text-gray-600">Headquartered at Assam University campus with state-of-the-art FabLab
+                            facilities in Silchar, serving as a hub for innovation and advanced manufacturing since
+                            2020.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <li><a href="#services">Services</a></li>
+        <!-- Full Awards Section -->
+        <section class="py-16 bg-green-100">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Awards & Recognition</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h3 class="text-xl font-bold mb-4">MeitY TIDE 2.0 Winner</h3>
+                        <p class="text-gray-600 mb-2">2023 Award from IIM Calcutta Innovation Park</p>
+                        <p class="text-sm text-gray-500">Recognized for technological excellence in electronics and IT
+                        </p>
+                        <span
+                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2023</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h3 class="text-xl font-bold mb-4">BIRAC BIG Awardee 2021</h3>
+                        <p class="text-gray-600 mb-2">Ranked 10th in Agriculture Category</p>
+                        <p class="text-sm text-gray-500">Final Score: 74.82/100</p>
+                        <span
+                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2021</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h3 class="text-xl font-bold mb-4">3D Printing Hackathon</h3>
+                        <p class="text-gray-600 mb-2">Funded by Ministry of DoNER</p>
+                        <p class="text-sm text-gray-500">2022 Winner in Advanced Manufacturing</p>
+                        <span
+                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <li><a href="#about">About Us</a></li>
+        <!-- Enhanced R&D Section -->
+        <section id="rnd" class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Research & Development</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Patent Portfolio</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Unmanned Surface Vessel Fish Feeding System (202231014018)</li>
+                            <li>Automated UAV Testing Apparatus (202431092506)</li>
+                            <li>Cassava Peeling Cum Processing Machine (Design 361536-001)</li>
+                            <li>Agricultural Drone Refilling Station (420505-001)</li>
+                            <li>Smart Soil Moisture Testing Device (407327-001)</li>
+                            <li>AquaBug Feeder (430901-001)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Research Projects</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>AI Enabled Fish Feeding System (₹50 Lakhs - Ministry of DoNER)</li>
+                            <li>Unmanned Surface Vessel (DST Nidhi Prayas - ₹6 Lakhs)</li>
+                            <li>Automated Fish Feeding System (BIRAC BIG - ₹48.88 Lakhs)</li>
+                            <li>Smart Agricultural Monitoring (STPI - ₹5 Lakhs)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <li><a href="#business">Business</a></li>
+        <!-- Full Collaboration Section -->
+        <section id="collaboration" class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Strategic Collaborations</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Government Partners</h3>
+                        <ul class="space-y-2">
+                            <li>Department of Science & Technology (DST)</li>
+                            <li>Ministry of DoNER</li>
+                            <li>Software Technology Parks of India (STPI)</li>
+                            <li>Biotechnology Industry Research Assistance Council (BIRAC)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Academic Partners</h3>
+                        <ul class="space-y-2">
+                            <li>Assam University</li>
+                            <li>IIM Calcutta Innovation Park</li>
+                            <li>KIIT Technology Business Incubator</li>
+                            <li>Indian National Space Promotion and Authorisation Centre (IN-SPACe)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Collaboration Areas</h3>
+                        <ul class="space-y-2">
+                            <li>Joint Research Projects</li>
+                            <li>Skill Development Programs</li>
+                            <li>3D Printing Solutions</li>
+                            <li>Startup Incubation Services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <li><a href="#contact">Contact</a></li>
+        <!-- Advisory Committee Section -->
+        <section id="advisors" class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Advisory Committee</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Promoters & Supporters</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Department of Science and Technology (DST)</li>
+                            <li>Ministry of DoNER</li>
+                            <li>Assam Startup</li>
+                            <li>Software Technology Parks of India (STPI)</li>
+                            <li>IIM Calcutta Innovation Park</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Industry Partners</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>KARNATAKA HYBRID MICRO DEVICES LIMITED</li>
+                            <li>Kawa Space - Satellite Technology</li>
+                            <li>NERAMAC Ltd</li>
+                            <li>TC-III Guwahati</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <li><a href="#home">Home</a></li>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Contact Us</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Registered Office</h3>
+                        <p class="text-gray-600 mb-4">
+                            Leofelis Instruments Pvt. Ltd.<br>
+                            Assam University Campus, Near SBI<br>
+                            Dorgakona, Dist. Cachar<br>
+                            Assam 788011
+                        </p>
+                        <div class="mt-4">
+                            <i class="fas fa-phone-alt mr-2 text-green-500"></i>
+                            <a href="tel:+918822331615" class="text-gray-600 hover:text-green-500">+91 88223 31615</a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Manufacturing Unit</h3>
+                        <p class="text-gray-600 mb-4">
+                            FabLab - Niz-Joynagar<br>
+                            Near Taib Ali LP School<br>
+                            Silchar, Assam 788025
+                        </p>
+                        <div class="mt-4">
+                            <i class="fas fa-envelope mr-2 text-green-500"></i>
+                            <a href="mailto:official@leofelisinstruments.com"
+                                class="text-gray-600 hover:text-green-500">
+                                official@leofelisinstruments.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <li><a href="#research">Research</a></li>
-
-    </ul>
-
-</div>
-
-
-
-        
-
-        <!-- Social Media Section -->
-
-        <div class="footer-section social-media">
-
-            <h3>Follow Us</h3>
-
-            <div class="social-icons">
-
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-
-                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-
-                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-
+    <!-- Footer -->
+    <footer class="bg-[#1a1a1d] text-[#f0f0f0] py-8">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-8 flex-wrap">
+            <!-- Company Info -->
+            <div class="flex-1 min-w-[250px] space-y-4">
+                <h3 class="text-2xl uppercase border-b-2 border-[#4CAF50] pb-1 mb-4 font-semibold tracking-wide">
+                    Leofelis Instruments
+                </h3>
+                <p class="text-[#d1d1d1] text-lg">Innovating Innovation</p>
+                <p class="text-[#d1d1d1] text-lg">&copy; 2024 All rights reserved.</p>
             </div>
 
+            <!-- Quick Links -->
+            <div class="flex-1 min-w-[250px] space-y-4">
+                <h3 class="text-2xl uppercase border-b-2 border-[#4CAF50] pb-1 mb-4 font-semibold tracking-wide">
+                    Quick Links
+                </h3>
+                <ul class="flex flex-wrap gap-x-8 gap-y-2">
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#services"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">Services</a>
+                    </li>
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#about"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">About</a>
+                    </li>
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#business"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">Business</a>
+                    </li>
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#contact"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">Contact</a>
+                    </li>
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#home"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">Home</a>
+                    </li>
+                    <li class="w-[45%] md:w-auto">
+                        <a href="#research"
+                            class="text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">Research</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="flex-1 min-w-[250px] space-y-4">
+                <h3 class="text-2xl uppercase border-b-2 border-[#4CAF50] pb-1 mb-4 font-semibold tracking-wide">
+                    Follow Us
+                </h3>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com" target="_blank"
+                        class="text-2xl text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank"
+                        class="text-2xl text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank"
+                        class="text-2xl text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank"
+                        class="text-2xl text-[#f0f0f0] hover:text-[#4CAF50] transition-colors duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-</footer>
-
-
-
+    </footer>
 </body>
 
 </html>
-

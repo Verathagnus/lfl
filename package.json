@@ -5,6 +5,6 @@
   },
   "scripts": {
     "dev": "npx @tailwindcss/cli -i ./styles-in.css -o ./css/styles-out.css --watch",
-    "prod": "npx @tailwindcss/cli -i ./styles-in.css -o ./css/styles-out.css"
+    "prod": "npx @tailwindcss/cli -i ./styles-in.css -o ./css/styles-out.css  --minify"
   }
 }

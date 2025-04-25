@@ -1,18 +1,16 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <title>Device Detection</title>
+    <title>Leofelis Instruments - Welcome</title>
+    <link rel="stylesheet" href="css/styles-out.css">
     <script>
-        // Mobile device detection
         function isMobileDevice() {
             return (typeof window.orientation !== "undefined") || 
                    (navigator.userAgent.indexOf('IEMobile') !== -1) ||
                    (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent));
         }
 
-        // Redirect based on device detection
         window.onload = function() {
             if(isMobileDevice()) {
                 window.location.href = "index_mobile.html";
@@ -22,13 +20,48 @@
         };
     </script>
     <noscript>
-        <!-- Fallback for browsers without JavaScript -->
         <meta http-equiv="refresh" content="0;url=index_desktop.html">
     </noscript>
 </head>
-<body>
-    <p>If you are not redirected automatically, please choose your version:</p>
-    <a href="index_desktop.html">Desktop Version</a> | 
-    <a href="index_mobile.html">Mobile Version</a>
+<body class="min-h-screen bg-[#1a1a1d] flex flex-col items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl text-center max-w-md w-full space-y-6">
+        <!-- Logo Section with Dark Background -->
+        <div class="bg-[#1a1a1d] p-4 rounded-lg shadow-inner">
+            <div class="flex items-center justify-center space-x-3">
+                <img src="images/logo1.png" alt="Company Icon" class="h-10 w-auto">
+                <img src="images/logo2.png" alt="Company Logo" class="h-12 w-auto">
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="space-y-4">
+            <h1 class="text-2xl font-bold text-[#1a1a1d]">
+                Welcome to <span class="text-[#4caf50]">Leofelis</span>
+            </h1>
+            <p class="text-gray-600">
+                Redirecting to optimal viewing experience...
+            </p>
+        </div>
+
+        <!-- Manual Selection Buttons -->
+        <div class="flex flex-col space-y-3">
+            <a href="index_desktop.html" 
+               class="bg-[#4caf50] hover:bg-[#3d8b40] text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md">
+                <span class="text-white">Desktop Experience</span>
+            </a>
+            <a href="index_mobile.html" 
+               class="border-2 border-[#4caf50] text-[#4caf50] hover:bg-[#4caf50]/10 font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                Mobile Version
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-6 pt-4 border-t border-[#4caf50]/20">
+            <p class="text-sm text-[#1a1a1d]/80">
+                © 2024 Leofelis Instruments Pvt. Ltd.<br>
+                <span class="text-[#4caf50] font-medium">Innovating Innovation</span>
+            </p>
+        </div>
+    </div>
 </body>
 </html>
