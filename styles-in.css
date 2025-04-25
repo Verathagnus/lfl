@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/* Reset margin and padding for the body and html */
+
+html, body {
+
+    margin: 0;
+
+    padding: 0;
+
+    height: 100%; /* Ensure body takes full height */
+
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+
+}
+
+
+
+/* Navigation bar styles */
+
+.topnav {
+
+    display: flex; /* Use flexbox for layout */
+
+    justify-content: space-between; /* Space between logo and links */
+
+    align-items: center; /* Center vertically */
+
+    background-color: #333;
+
+    padding: 0; /* Remove padding */
+
+    margin: 0; /* Remove any margin */
+
+    height: 60px; /* Set a fixed height for the nav bar */
+
+}
+
+
+
+.topnav .logo {
+
+    height: 40px; /* Adjust the height as needed */
+
+    margin-left: 10px; /* Add a little left padding */
+
+}
+
+
+
+.nav-links {
+
+    display: flex; /* Use flexbox for navigation links */
+
+}
+
+
+
+.topnav a {
+
+    display: block;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 14px 16px;
+
+    text-decoration: none;
+
+}
+
+
+
+.topnav a:hover {
+
+    background-color: #ddd;
+
+    color: black;
+
+}
+
+
+
+.topnav .active {
+
+    background-color: #4CAF50;
+
+    color: white;
+
+}
+
+
+
+/* Image section */
+
+.image-section {
+
+    background-image: url('../images/frame_8.jpg'); /* Add your image path here */
+
+    background-size: cover; /* Cover the entire area */
+
+    background-position: center; /* Center the image */
+
+    height: calc(100vh - 60px); /* Adjust height based on nav bar height */
+
+    width: 100%; /* Full width */
+
+    margin: 0; /* Remove any margin */
+
+    padding: 0; /* Remove any padding */
+
+}
+
+
+
+.image-section h1 {
+
+    color: white;
+
+    text-align: center;
+
+    padding-top: 20%; /* Position text vertically */
+
+    margin: 0; /* Remove default margin */
+
+}
+
+
+
+/* Footer styles */
+
+.custom-footer {
+
+    background-color: #1a1a1d; /* Darker background */
+
+    color: #f0f0f0; /* Light text */
+
+    padding: 30px 0; /* Reduced padding for smaller footer height */
+
+    font-family: 'Poppins', sans-serif; /* Modern font */
+
+}
+
+
+
+.footer-container {
+
+    max-width: 1200px; /* Constrain content width */
+
+    margin: 0 auto; /* Center footer content */
+
+    display: flex; /* Flexbox for alignment */
+
+    justify-content: space-between; /* Space sections evenly */
+
+    flex-wrap: wrap; /* Wrap for responsive */
+
+}
+
+
+
+/* Footer Section Styles */
+
+.footer-section {
+
+    flex: 1; /* Each section gets equal space */
+
+    min-width: 250px; /* Set minimum width */
+
+    padding: 0 20px; /* Side padding for better spacing */
+
+    margin-bottom: 20px; /* Even spacing for all sections */
+
+    display: flex;
+
+    flex-direction: column; /* Align content vertically */
+
+}
+
+
+
+/* Footer Title Styling */
+
+.footer-section h3 {
+
+    margin-bottom: 15px; /* Uniform bottom margin */
+
+    font-size: 22px; /* Bigger font size for headings */
+
+    text-transform: uppercase; /* Uppercase for bold look */
+
+    border-bottom: 3px solid #4CAF50; /* Green underline for headings */
+
+    padding-bottom: 5px; /* Reduced padding */
+
+    letter-spacing: 2px; /* Space out letters */
+
+    color: #f0f0f0;
+
+}
+
+
+
+/* Footer Text and List Styles */
+
+.footer-section p, .footer-section ul {
+
+    font-size: 16px; /* Adjust paragraph and list font size */
+
+    line-height: 1.7; /* Better readability */
+
+    color: #d1d1d1; /* Slightly lighter color */
+
+}
+
+
+
+.footer-section ul {
+
+    list-style-type: none; /* Remove bullet points */
+
+    padding: 0; /* Remove padding */
+
+    margin: 0;
+
+    display: flex;
+
+    flex-wrap: wrap; /* Allows wrapping onto the next line */
+
+    justify-content: space-between; /* Spreads the columns evenly */
+
+}
+
+
+
+.footer-section ul li {
+
+    flex: 1 1 30%; /* Each item takes up approximately 30% of the container width */
+
+    margin-bottom: 10px; /* Consistent spacing between list items */
+
+}
+
+
+
+/* Footer Links Styling */
+
+.footer-section ul li a {
+
+    color: #f0f0f0; /* White color for links */
+
+    text-decoration: none;
+
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover */
+
+}
+
+
+
+.footer-section ul li a:hover {
+
+    color: #4CAF50; /* Green on hover */
+
+}
+
+
+
+/* Social Icons */
+
+.social-icons a {
+
+    margin-right: 15px;
+
+    font-size: 26px; /* Bigger icons */
+
+    color: #f0f0f0;
+
+    transition: color 0.3s ease; /* Smooth hover transition */
+
+}
+
+
+
+.social-icons a:hover {
+
+    color: #4CAF50; /* Green on hover */
+
+}
+
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+
+    .footer-container {
+
+        flex-direction: column; /* Stack items vertically */
+
+        align-items: center;
+
+        text-align: center;
+
+    }
+
+
+
+    .footer-section {
+
+        margin-bottom: 20px; /* Extra space for mobile */
+
+    }
+
+
+
+    .social-icons a {
+
+        font-size: 24px; /* Adjust size for mobile */
+
+    }
+
+}
+

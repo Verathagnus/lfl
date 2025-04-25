@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Website</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Make sure body and html are 100% height */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure footer sticks to the bottom */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .logo img {
+            width: 70px;  
+            height: 40px; 
+            margin: 20px auto; 
+            display: block;
+        }
+
+        /* Main content styling */
+        .main-content {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .main-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        nav ul li {
+            text-align: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu-icon" onclick="toggleMenu()">&#9776; Menu</button>
+        <div class="logo">
+            <img src="images/logo1.png" alt="Logo" /> <!-- Updated logo image path -->
+        </div>
+    </header>
+    
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#internship">Internship</a></li>
+            <li><a href="#career">Career</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h2>Leofelis Instruments</h2>
+        <img src="images/frame_3.jpg" alt="Description of Image" /> <!-- Add your image here -->
+    </div>
+
+    <footer>
+        <p>© 2024 My Mobile Website</p>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+
+        function toggleMenu() {
+            const leftPosition = navbar.style.left === '0px' ? '-200px' : '0px'; // Toggle between -200px and 0px
+            navbar.style.left = leftPosition;
+        }
+
+        // Close the menu if the user clicks outside of it
+        document.addEventListener('click', function(event) {
+            if (!navbar.contains(event.target) && !event.target.matches('.menu-icon')) {
+                navbar.style.left = '-200px'; // Close the menu
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Device Detection</title>
+    <script>
+        // Mobile device detection
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || 
+                   (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+                   (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent));
+        }
+
+        // Redirect based on device detection
+        window.onload = function() {
+            if(isMobileDevice()) {
+                window.location.href = "index_mobile.html";
+            } else {
+                window.location.href = "index_desktop.html";
+            }
+        };
+    </script>
+    <noscript>
+        <!-- Fallback for browsers without JavaScript -->
+        <meta http-equiv="refresh" content="0;url=index_desktop.html">
+    </noscript>
+</head>
+<body>
+    <p>If you are not redirected automatically, please choose your version:</p>
+    <a href="index_desktop.html">Desktop Version</a> | 
+    <a href="index_mobile.html">Mobile Version</a>
+</body>
+</html>
