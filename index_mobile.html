@@ -1,294 +1,219 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Smartphone Website</title>
-
-    <style>
-
-        /* Reset some default styles */
-
-        * {
-
-            margin: 0;
-
-            padding: 0; /* Ensure no padding */
-
-            box-sizing: border-box;
-
-        }
-
-        html, body {
-
-            height: 100%; /* Make sure body and html are 100% height */
-
-        }
-
-        body {
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between; /* Ensure footer sticks to the bottom */
-
-            font-family: Arial, sans-serif;
-
-            line-height: 1.6;
-
-            background-color: #f4f4f4;
-
-        }
-
-        header {
-
-            background-color: #333;
-
-            color: #fff;
-
-            padding: 10px;
-
-            text-align: center;
-
-            position: relative;
-
-        }
-
-        .menu-icon {
-
-            cursor: pointer;
-
-            font-size: 24px;
-
-            padding: 10px;
-
-            background-color: #333;
-
-            color: white;
-
-            border: none;
-
-            position: absolute;
-
-            left: 10px;
-
-            top: 10px;
-
-        }
-
-        .logo img {
-
-            width: 70px; 
-
-            height: 40px; 
-
-            margin: 20px auto; 
-
-            display: block;
-
-        }
-
-        /* Main content styling */
-
-        .main-content {
-
-            margin: 0; /* Ensure no margin */
-
-            padding: 0; /* Ensure no padding */
-
-            background-color: white;
-
-            border-radius: 5px;
-
-            text-align: center;
-
-            flex-grow: 1;
-
-        }
-
-        .main-content img {
-
-            width: 100%; /* Updated to cover the entire container */
-
-            height: 100%; /* Updated to cover the entire container */
-
-            border-radius: 5px;
-
-        }
-
-        nav {
-
-            position: absolute;
-
-            top: 0;
-
-            left: -200px;
-
-            width: 200px;
-
-            height: 100%;
-
-            background-color: #333;
-
-            transition: left 0.3s ease;
-
-            z-index: 1000;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-        }
-
-        nav ul {
-
-            list-style: none;
-
-            padding: 0;
-
-            width: 100%;
-
-        }
-
-        nav ul li {
-
-            text-align: center;
-
-        }
-
-        nav ul li a {
-
-            color: white;
-
-            text-decoration: none;
-
-            padding: 15px;
-
-            display: block;
-
-        }
-
-        nav ul li a:hover {
-
-            background-color: #555;
-
-        }
-
-        footer {
-
-            text-align: center;
-
-            padding: 10px;
-
-            background-color: #333;
-
-            color: white;
-
-            width: 100%;
-
-            position: relative;
-
-            bottom: 0;
-
-        }
-
-        @media (max-width: 600px) {
-
-            .main-content {
-
-                padding: 0; /* Ensure no padding */
-
-            }
-
-        }
-
-    </style>
-
+    <title>Leofelis Instruments</title>
+    <link rel="icon" type="image/x-icon" href="images/logo1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="js/cdn.min.js"></script>
+    <link rel="stylesheet" href="css/styles-out.css">
 </head>
 
-<body>
-
-    <header>
-
-        <button class="menu-icon" onclick="toggleMenu()">&#9776; Menu</button>
-
-        <div class="logo">
-
-            <img src="images/logo1.png" alt="Logo" />
-
+<body class="bg-gray-900 font-[Poppins] scroll-style">
+    <!-- Mobile Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-gray-900/95 backdrop-blur-sm" x-data="{ isOpen: false }">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="images/logo1.png" alt="Logo" class="h-8">
+                    <img src="images/logo2.png" alt="Brand" class="h-10">
+                </div>
+                
+                <!-- Hamburger Menu -->
+                <button @click="isOpen = !isOpen" class="text-gray-300 hover:text-emerald-400 p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
 
-    </header>
-
-    <nav id="navbar">
-
-        <ul>
-
-            <li><a href="#home">Home</a></li>
-
-            <li><a href="#about">About</a></li>
-
-            <li><a href="#services">Services</a></li>
-
-            <li><a href="#contact">Contact</a></li>
-
-            <li><a href="#product">Product</a></li>
-
-            <li><a href="#internship">Internship</a></li>
-
-            <li><a href="#career">Career</a></li>
-
-        </ul>
-
+        <!-- Mobile Menu -->
+        <div x-show="isOpen" x-cloak class="md:hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#home" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">Home</a>
+                <a href="#about" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">About</a>
+                <a href="#rnd" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">R&D</a>
+                <a href="#collaboration" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">Collaboration</a>
+                <a href="#advisors" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">Advisory</a>
+                <a href="#contact" @click="isOpen = false" class="block py-3 text-gray-300 hover:bg-gray-700 rounded-lg">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="main-content">
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 text-center px-4 max-w-md">
+                <img src="images/logo2.png" alt="Logo" class="h-20 mx-auto mb-6">
+                <h1 class="text-3xl font-bold text-gray-100 mb-4 leading-tight">
+                    Redefining Innovation Through Reverse Engineering
+                </h1>
+                <p class="text-gray-300 mb-8">Pioneering Engineering Prototyping Solutions</p>
+                <div class="flex flex-col space-y-4">
+                    <a href="#collaboration" class="btn-emerald py-3 px-6">Explore Collaborations</a>
+                    <a href="#contact" class="btn-outline-emerald py-3 px-6">Contact Us</a>
+                </div>
+            </div>
+        </section>
 
-        <img src="images/frame_9.jpg" alt="Description of Image" />
+        <!-- About Section -->
+        <section id="about" class="py-12 px-4 bg-gray-800">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-100 mb-8 text-center">About Us</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-emerald-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-microscope text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-100">Who We Are</h3>
+                        </div>
+                        <p class="text-gray-400">
+                            Leading innovation hub in engineering prototyping and instrument development across defense, aerospace, and agriculture sectors.
+                        </p>
+                    </div>
+                    
+                    <!-- Repeat similar blocks for other about cards -->
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <!-- Awards Section -->
+        <section class="py-12 bg-gray-850">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-2xl font-bold text-gray-100 mb-8 text-center">Achievements</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-emerald-900/30 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-100">MeitY TIDE 2.0 Winner</h3>
+                        </div>
+                        <p class="text-gray-400 text-sm">2023 - Recognized for excellence in electronics & IT</p>
+                    </div>
+                    
+                    <!-- Repeat for other awards -->
+                </div>
+            </div>
+        </section>
 
-    <footer>
+        <!-- R&D Section -->
+        <section id="rnd" class="py-12 bg-gray-800">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-2xl font-bold text-gray-100 mb-8 text-center">Innovation Portfolio</h2>
+                <div class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <h3 class="text-lg font-semibold text-emerald-400 mb-4">Patent Portfolio</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-fish text-emerald-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="text-gray-100">Unmanned Surface Vessel</h4>
+                                    <p class="text-gray-400 text-sm">Application No. 202231014018</p>
+                                </div>
+                            </li>
+                            <!-- Repeat for other patents -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p>© 2024 My Mobile Website</p>
+        <!-- Collaboration Section -->
+        <section id="collaboration" class="py-12 bg-gray-850">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-2xl font-bold text-gray-100 mb-8 text-center">Partnerships</h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+                            <i class="fas fa-landmark mr-3"></i> Government Partners
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-emerald-400 mr-3"></i>
+                                <span class="text-gray-300">Department of Science & Technology</span>
+                            </li>
+                            <!-- Repeat for other partners -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 bg-gray-800">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-2xl font-bold text-gray-100 mb-8 text-center">Contact Us</h2>
+                <div class="space-y-8">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-map-marker-alt text-emerald-400 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-100 mb-2">Registered Office</h3>
+                                <p class="text-gray-400 text-sm">
+                                    Assam University Campus, Near SBI<br>
+                                    Dorgakona, Dist. Cachar, Assam 788011
+                                </p>
+                                <a href="tel:+918822331615" class="text-emerald-400 text-sm mt-2 block">
+                                    <i class="fas fa-phone mr-2"></i>+91 88223 31615
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <h3 class="text-lg font-semibold text-gray-100 mb-4">Connect With Us</h3>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#" class="w-10 h-10 bg-emerald-900/30 rounded-full flex items-center justify-center">
+                                <i class="fab fa-linkedin-in text-emerald-400"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-emerald-900/30 rounded-full flex items-center justify-center">
+                                <i class="fab fa-twitter text-emerald-400"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-emerald-900/30 rounded-full flex items-center justify-center">
+                                <i class="fab fa-facebook-f text-emerald-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex flex-col items-center mb-6">
+                <div class="flex items-center space-x-2 mb-4">
+                    <img src="images/logo1.png" alt="Logo" class="h-8">
+                    <img src="images/logo2.png" alt="Brand" class="h-10">
+                </div>
+                <p class="text-sm">&copy; 2024 Leofelis Instruments Pvt. Ltd.</p>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#about" class="text-gray-400 hover:text-emerald-400">About</a>
+                <a href="#contact" class="text-gray-400 hover:text-emerald-400">Contact</a>
+                <a href="#careers" class="text-gray-400 hover:text-emerald-400">Careers</a>
+            </div>
+            
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-emerald-400 text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-emerald-400 text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-emerald-400 text-xl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </footer>
-
-    <script>
-
-        const navbar = document.getElementById('navbar');
-
-        function toggleMenu() {
-
-            const leftPosition = navbar.style.left === '0px' ? '-200px' : '0px'; // Toggle between -200px and 0px
-
-            navbar.style.left = leftPosition;
-
-        }
-
-        // Close the menu if the user clicks outside of it
-
-        document.addEventListener('click', function(event) {
-
-            if (!navbar.contains(event.target) && !event.target.matches('.menu-icon')) {
-
-                navbar.style.left = '-200px'; // Close the menu
-
-            }
-
-        });
-
-    </script>
-
 </body>
-
 </html>
-
