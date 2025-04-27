@@ -11,10 +11,42 @@
     <link rel="stylesheet" href="css/styles-out.css">
 </head>
 
-<body class="bg-white font-[Poppins]">
+<body class="bg-white font-[Poppins] scroll-style">
     <!-- Navigation Bar -->
-    <nav class="fixed w-full top-0 z-50 transition-colors duration-300"
-        x-data="{ isOpen: false, dropdownOpen: false, isScrolled: false }" x-init="() => {
+    <nav class="fixed w-full top-0 z-50 transition-colors duration-300" x-data="{ isOpen: false, dropdownOpen: false, isScrolled: false,
+            mobileDropdownOpen: false,
+            scrollToSection(id) {
+                // Close all menus first
+                this.isOpen = false;
+                this.dropdownOpen = false;
+                this.mobileDropdownOpen = false;
+                
+                // Remove scroll lock after slight delay
+                setTimeout(() => {
+                    document.body.classList.remove('overflow-hidden');
+                }, 300);
+        
+                // Smooth scroll implementation
+                const scroll = () => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        const headerOffset = 64;
+                        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                };
+        
+                // Wait for menu transitions to complete
+                requestAnimationFrame(() => {
+                    setTimeout(scroll, 150);
+                });
+            }
+        }" x-init="() => {
          const checkScroll = () => isScrolled = window.scrollY > 0;
          window.addEventListener('scroll', checkScroll);
          checkScroll();
@@ -32,12 +64,13 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex md:items-center md:space-x-8">
                     <!-- Main Links -->
-                    <a href="#home" class="text-white hover:text-green-500 px-3 py-2 transition-colors">Home</a>
-                    <a href="#about" class="text-white hover:text-green-500 px-3 py-2 transition-colors">About</a>
-                    <a href="#rnd" class="text-white hover:text-green-500 px-3 py-2 transition-colors">R&D</a>
+                    <a href="#home" class="text-white hover:text-green-500 px-1 py-2 transition-colors">Home</a>
+                    <a href="#about" class="text-white hover:text-green-500 px-1 py-2 transition-colors">About</a>
+                    <a href="#rnd" class="text-white hover:text-green-500 px-1 py-2 transition-colors">R&D</a>
                     <a href="#collaboration"
-                        class="text-white hover:text-green-500 px-3 py-2 transition-colors">Collaboration</a>
-                    <a href="#advisors" class="text-white hover:text-green-500 px-3 py-2 transition-colors">Advisory</a>
+                        class="text-white hover:text-green-500 px-1 py-2 transition-colors">Collaboration</a>
+                    <a href="#advisors" class="text-white hover:text-green-500 px-1 py-2 transition-colors">Advisory
+                        Committee</a>
 
                     <!-- Dropdown -->
                     <div class="relative" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
@@ -79,48 +112,96 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="md:hidden" x-show="isOpen" @click.away="isOpen = false"
-            x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-75"
-            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-            <div class="px-2 pt-2 pb-3 overflow-y-auto space-y-1 bg-[#1a1a1d]">
-                <a href="#home" class="text-white block px-3 py-2 hover:bg-green-500">Home</a>
-                <a href="#about" class="text-white block px-3 py-2 hover:bg-green-500">About</a>
-                <a href="#rnd" class="text-white block px-3 py-2 hover:bg-green-500">R&D</a>
-                <a href="#collaboration" class="text-white block px-3 py-2 hover:bg-green-500">Collaboration</a>
-                <a href="#advisors" class="text-white block px-3 py-2 hover:bg-green-500">Advisory</a>
+        <div class="md:hidden" x-show="isOpen" x-cloak x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2" @click.away="isOpen = false">
+            <div class="px-2 pt-2 pb-3 overflow-y-auto space-y-1 bg-[#1a1a1d] relative">
+                <a href="#home" @click.prevent="scrollToSection('home')"
+                    class="text-white block px-3 py-2 hover:bg-green-500">Home</a>
+                <a href="#about" @click.prevent="scrollToSection('about')"
+                    class="text-white block px-3 py-2 hover:bg-green-500">About</a>
+                <a href="#rnd" @click.prevent="scrollToSection('rnd')"
+                    class="text-white block px-3 py-2 hover:bg-green-500">R&D</a>
+                <a href="#collaboration" @click.prevent="scrollToSection('collaboration')"
+                    class="text-white block px-3 py-2 hover:bg-green-500">Collaboration</a>
+                <a href="#advisors" @click.prevent="scrollToSection('advisors')"
+                    class="text-white block px-3 py-2 hover:bg-green-500">Advisory</a>
 
                 <!-- Mobile Dropdown with Scroll -->
-                <div x-data="{ mobileDropdownOpen: false }" class="relative">
+                <!-- Improved Mobile Dropdown -->
+                <div x-data="{ mobileDropdownOpen: false }" x-init="
+    $watch('mobileDropdownOpen', value => {
+        document.body.classList.toggle('overflow-hidden', value);
+    })
+" class="relative">
                     <button @click="mobileDropdownOpen = !mobileDropdownOpen"
                         class="w-full text-left text-white px-3 py-2 hover:bg-green-500 flex justify-between items-center">
                         More
-                        <i class="fas fa-chevron-down text-sm" :class="{ 'rotate-180': mobileDropdownOpen }"></i>
+                        <i class="fas fa-chevron-down text-sm transform transition-transform duration-200"
+                            :class="{ 'rotate-180': mobileDropdownOpen }"></i>
                     </button>
 
-                    <div x-show="mobileDropdownOpen" class="pl-4 overflow-y-auto mobile-dropdown" x-collapse>
-                        <a href="#director" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Director</a>
-                        <a href="#contact" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Contact</a>
-                        <a href="#academia" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Academia</a>
-                        <a href="#service" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Service</a>
-                        <a href="#internship" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Internship</a>
-                        <a href="#supporter" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Supporters</a>
-                        <a href="#career" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Career</a>
-                        <a href="#notice" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Notice</a>
-                        <a href="#product" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Products</a>
-                        <a href="#labs" class="block px-3 py-2 text-gray-300 hover:bg-green-500">Labs</a>
-                        <a href="#csr" class="block px-3 py-2 text-gray-300 hover:bg-green-500">CSR</a>
-                        <a href="#news" class="block px-3 py-2 text-gray-300 hover:bg-green-500">News</a>
+                    <!-- Dropdown as Overlay -->
+                    <div x-show="mobileDropdownOpen" x-cloak
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                        x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0"
+                        x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150"
+                        @click="mobileDropdownOpen = false">
+
+                        <div class="relative m-4 w-full max-w-md max-h-[80vh] bg-[#1a1a1d] rounded-xl shadow-2xl overflow-hidden"
+                            @click.stop x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-4"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-4">
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-4 border-b border-green-500 pb-2">
+                                    <h3 class="text-xl text-white">More Options</h3>
+                                    <button @click="mobileDropdownOpen = false"
+                                        class="text-white hover:text-green-500 transition-colors">
+                                        <i class="fas fa-times text-lg"></i>
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 gap-2 overflow-y-auto max-h-[65vh] scroll-style">
+                                    <a @click.prevent="scrollToSection('about'); mobileDropdownOpen = false"
+                                        href="#about"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Director</a>
+                                    <a href="#contact"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Contact</a>
+                                    <a href="#academia"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Academia</a>
+                                    <a href="#service"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Service</a>
+                                    <a href="#internship"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Internship</a>
+                                    <a href="#supporter"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Supporters</a>
+                                    <a href="#career"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Career</a>
+                                    <a href="#notice"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Notice</a>
+                                    <a href="#product"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Products</a>
+                                    <a href="#labs"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">Labs</a>
+                                    <a href="#csr"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">CSR</a>
+                                    <a href="#news"
+                                        class="block px-3 py-2 text-gray-300 hover:bg-green-500 rounded-lg transition-colors">News</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </nav>
 
     <!-- Main Content Sections -->
     <main>
         <!-- Hero Section -->
-        <section id="home" class="image-section bg-cover bg-center h-screen flex justify-center ">
+        <section id="home" class="image-section bg-cover bg-center h-screen flex justify-center items-center">
             <div class="text-center bg-opacity-50 p-8 rounded-lg max-w-4xl mx-4">
                 <h1 class="text-4xl md:text-6xl font-bold text-white">
                     Redefining Innovation Through Reverse Engineering
