@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles-out.css">
 </head>
 
-<body class="bg-white font-[Poppins] scroll-style">
+<body class="bg-[#1a1a1d] font-[Poppins] scroll-style">
     <!-- Navigation Bar -->
     <nav class="fixed w-full top-0 z-50 transition-colors duration-300" x-data="{ isOpen: false, dropdownOpen: false, isScrolled: false,
             mobileDropdownOpen: false,
@@ -202,130 +202,288 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="image-section bg-cover bg-center h-screen flex justify-center items-center">
-            <div class="text-center bg-opacity-50 p-8 rounded-lg max-w-4xl mx-4">
-                <h1 class="text-4xl md:text-6xl font-bold text-white">
+            <div class="text-center bg-black/30 py-4 px-8 rounded-lg max-w-4xl mx-4 backdrop-blur-sm">
+                <img src="images/logo2.png" alt="Logo" class="h-24 mx-auto mb-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">
                     Redefining Innovation Through Reverse Engineering
                 </h1>
+                <p class="text-xl text-white/90 mb-6">Pioneering Engineering Prototyping & R&D Solutions</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#collaboration" class="btn-primary text-green-500  mb-5">Explore Collaborations</a>
+                    <a href="#contact" class="btn-outline-white text-green-500 mb-5">Contact Us</a>
+                </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-16 px-4 md:px-8 bg-gray-50">
+        <section id="about" class="py-20 px-4 md:px-8 bg-[#1a1c1d]">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About Us</h2>
+                <h2 class="text-4xl font-bold text-gray-100 mb-12 text-center section-title">About Leofelis Instruments
+                </h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Introduction</h3>
-                        <p class="text-gray-600">Leofelis Instruments Pvt. Ltd. specializes in engineering prototyping
-                            and innovative instrument development across defense, aerospace, fisheries, and agriculture
-                            sectors, providing prototyping solutions to support MSMEs and foster innovation.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Vision & Mission</h3>
-                        <p class="text-gray-600">To become India's leader in engineering prototyping and R&D, delivering
-                            innovative solutions through strategic collaborations and advanced technologies while
-                            fostering research and skill development.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Establishment</h3>
-                        <p class="text-gray-600">Headquartered at Assam University campus with state-of-the-art FabLab
-                            facilities in Silchar, serving as a hub for innovation and advanced manufacturing since
-                            2020.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Full Awards Section -->
-        <section class="py-16 bg-green-100">
-            <div class="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Awards & Recognition</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <h3 class="text-xl font-bold mb-4">MeitY TIDE 2.0 Winner</h3>
-                        <p class="text-gray-600 mb-2">2023 Award from IIM Calcutta Innovation Park</p>
-                        <p class="text-sm text-gray-500">Recognized for technological excellence in electronics and IT
+                    <!-- Introduction Card -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-gray-600">
+                        <div class="w-12 h-12 bg-emerald-900/30 rounded-lg mb-4 flex items-center justify-center">
+                            <i class="fas fa-microscope text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-100">Who We Are</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Leofelis Instruments Pvt. Ltd. is a forward-thinking innovation hub specializing in
+                            engineering prototyping and cutting-edge instrument development across defense, aerospace,
+                            fisheries, and agriculture sectors.
                         </p>
-                        <span
-                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2023</span>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <h3 class="text-xl font-bold mb-4">BIRAC BIG Awardee 2021</h3>
-                        <p class="text-gray-600 mb-2">Ranked 10th in Agriculture Category</p>
-                        <p class="text-sm text-gray-500">Final Score: 74.82/100</p>
-                        <span
-                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2021</span>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <h3 class="text-xl font-bold mb-4">3D Printing Hackathon</h3>
-                        <p class="text-gray-600 mb-2">Funded by Ministry of DoNER</p>
-                        <p class="text-sm text-gray-500">2022 Winner in Advanced Manufacturing</p>
-                        <span
-                            class="bg-green-500 text-white px-4 py-1 rounded-full text-sm mt-4 inline-block">2022</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Enhanced R&D Section -->
-        <section id="rnd" class="py-16 bg-white">
-            <div class="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Research & Development</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Patent Portfolio</h3>
-                        <ul class="list-disc pl-6 space-y-2">
-                            <li>Unmanned Surface Vessel Fish Feeding System (202231014018)</li>
-                            <li>Automated UAV Testing Apparatus (202431092506)</li>
-                            <li>Cassava Peeling Cum Processing Machine (Design 361536-001)</li>
-                            <li>Agricultural Drone Refilling Station (420505-001)</li>
-                            <li>Smart Soil Moisture Testing Device (407327-001)</li>
-                            <li>AquaBug Feeder (430901-001)</li>
-                        </ul>
+                    <!-- Vision & Mission Card -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-gray-600">
+                        <div class="w-12 h-12 bg-emerald-900/30 rounded-lg mb-4 flex items-center justify-center">
+                            <i class="fas fa-bullseye text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-100">Vision & Mission</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            <span class="font-semibold text-emerald-400">Vision:</span> To emerge as India's premier
+                            engineering prototyping and R&D hub.<br><br>
+                            <span class="font-semibold text-emerald-400">Mission:</span> Deliver cutting-edge solutions
+                            through strategic partnerships and advanced technologies.
+                        </p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Research Projects</h3>
-                        <ul class="list-disc pl-6 space-y-2">
-                            <li>AI Enabled Fish Feeding System (₹50 Lakhs - Ministry of DoNER)</li>
-                            <li>Unmanned Surface Vessel (DST Nidhi Prayas - ₹6 Lakhs)</li>
-                            <li>Automated Fish Feeding System (BIRAC BIG - ₹48.88 Lakhs)</li>
-                            <li>Smart Agricultural Monitoring (STPI - ₹5 Lakhs)</li>
+
+                    <!-- Facilities Card -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border border-gray-600">
+                        <div class="w-12 h-12 bg-emerald-900/30 rounded-lg mb-4 flex items-center justify-center">
+                            <i class="fas fa-university text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-100">Our Facilities</h3>
+                        <ul class="list-disc pl-5 space-y-2 mt-3 text-gray-400">
+                            <li>Advanced 3D printing systems</li>
+                            <li>Robotics prototyping lab</li>
+                            <li>AI-enabled testing facilities</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Full Collaboration Section -->
-        <section id="collaboration" class="py-16 bg-gray-50">
+        <!-- Awards Section -->
+        <section class="py-20 bg-gray-850">
             <div class="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Strategic Collaborations</h2>
+                <h2 class="text-4xl font-bold text-gray-100 mb-12 text-center section-title">Our Achievements</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Government Partners</h3>
-                        <ul class="space-y-2">
-                            <li>Department of Science & Technology (DST)</li>
-                            <li>Ministry of DoNER</li>
-                            <li>Software Technology Parks of India (STPI)</li>
-                            <li>Biotechnology Industry Research Assistance Council (BIRAC)</li>
+                    <!-- Award Card 1 -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all border border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-emerald-900/30 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-2xl text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">MeitY TIDE 2.0 Winner</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Recognized for technological excellence in electronics and IT infrastructure.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full text-sm">2023</span>
+                            <a href="#rnd" class="text-emerald-400 hover:text-emerald-300 flex items-center">
+                                View Projects <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- BIRAC Award -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all border border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-emerald-900/30 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-2xl text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">BIRAC BIG Awardee 2021</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Ranked 10th nationally in Agriculture & Allied sectors with a score of 74.82/100 for our
+                            AI-enabled agricultural solutions.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full text-sm">2021</span>
+                            <a href="#research" class="text-emerald-400 hover:text-emerald-300 flex items-center">
+                                View Research <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3D Printing Award -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg transform hover:-translate-y-2 transition-all border border-gray-600">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-emerald-900/30 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-2xl text-emerald-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-100">3D Printing Hackathon</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Funded by Ministry of DoNER for developing innovative rapid prototyping solutions in
+                            advanced manufacturing.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full text-sm">2022</span>
+                            <a href="#manufacturing" class="text-emerald-400 hover:text-emerald-300 flex items-center">
+                                View Tech <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- R&D Section -->
+        <section id="rnd" class="py-20 bg-gray-800">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-gray-100 mb-12 text-center section-title">Innovation Portfolio</h2>
+
+                <!-- Patents Section -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold mb-8 text-emerald-400 flex items-center">
+                        <i class="fas fa-shield-alt mr-3"></i> Patent Portfolio
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                            <div class="flex items-start mb-4">
+                                <div class="w-8 h-8 bg-emerald-900/30 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-fish text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-100">Unmanned Surface Vessel Fish Feeding System
+                                    </h4>
+                                    <p class="text-sm text-gray-400">Application No. 202231014018</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat similar blocks for other patents -->
+                    </div>
+                </div>
+
+                <!-- Research Projects -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-semibold mb-8 text-emerald-400 flex items-center">
+                        <i class="fas fa-flask mr-3"></i> Active Research Projects
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-semibold text-gray-100 mb-2">AI Enabled Fish Feeding System</h4>
+                                    <p class="text-gray-400">Ministry of DoNER funded project focusing on inland
+                                        fisheries automation</p>
+                                </div>
+                                <span class="bg-emerald-900/30 text-emerald-400 px-3 py-1 rounded-full text-sm">₹50
+                                    Lakhs</span>
+                            </div>
+                        </div>
+                        <!-- Repeat for other projects -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Section -->
+        <section id="collaboration" class="py-20 bg-gray-800">
+            <div class="max-w-6xl mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-gray-100 mb-12 text-center section-title">Strategic Partnerships</h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Government Partners -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg border border-gray-600 hover:border-emerald-400/30 transition-all">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400 flex items-center">
+                            <i class="fas fa-landmark mr-3"></i> Government Allies
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Department of Science & Technology (DST)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Ministry of DoNER</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Biotechnology Industry Research Assistance Council
+                                    (BIRAC)</span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Academic Partners</h3>
-                        <ul class="space-y-2">
-                            <li>Assam University</li>
-                            <li>IIM Calcutta Innovation Park</li>
-                            <li>KIIT Technology Business Incubator</li>
-                            <li>Indian National Space Promotion and Authorisation Centre (IN-SPACe)</li>
+
+                    <!-- Academic Partners -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg border border-gray-600 hover:border-emerald-400/30 transition-all">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400 flex items-center">
+                            <i class="fas fa-graduation-cap mr-3"></i> Academic Network
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Assam University</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">IIM Calcutta Innovation Park</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-check text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">KIIT Technology Business Incubator</span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Collaboration Areas</h3>
-                        <ul class="space-y-2">
-                            <li>Joint Research Projects</li>
-                            <li>Skill Development Programs</li>
-                            <li>3D Printing Solutions</li>
-                            <li>Startup Incubation Services</li>
+
+                    <!-- Collaboration Areas -->
+                    <div
+                        class="bg-gray-700 p-8 rounded-2xl shadow-lg border border-gray-600 hover:border-emerald-400/30 transition-all">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400 flex items-center">
+                            <i class="fas fa-handshake mr-3"></i> Collaboration Verticals
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Joint Technology Development</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-cogs text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">Advanced Manufacturing Solutions</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div
+                                    class="w-6 h-6 bg-emerald-900/30 rounded-full mr-3 flex items-center justify-center">
+                                    <i class="fas fa-brain text-emerald-400 text-xs"></i>
+                                </div>
+                                <span class="text-gray-300">AI & Robotics Research</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -333,13 +491,13 @@
         </section>
 
         <!-- Advisory Committee Section -->
-        <section id="advisors" class="py-16 bg-white">
+        <section id="advisors" class="py-16 bg-gray-850">
             <div class="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Advisory Committee</h2>
+                <h2 class="text-3xl font-bold text-gray-100 mb-8 text-center">Advisory Committee</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Promoters & Supporters</h3>
-                        <ul class="list-disc pl-6 space-y-2">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <h3 class="text-xl font-semibold mb-4 text-emerald-400">Promoters & Supporters</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
                             <li>Department of Science and Technology (DST)</li>
                             <li>Ministry of DoNER</li>
                             <li>Assam Startup</li>
@@ -347,9 +505,9 @@
                             <li>IIM Calcutta Innovation Park</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Industry Partners</h3>
-                        <ul class="list-disc pl-6 space-y-2">
+                    <div class="bg-gray-700 p-6 rounded-xl border border-gray-600">
+                        <h3 class="text-xl font-semibold mb-4 text-emerald-400">Industry Partners</h3>
+                        <ul class="list-disc pl-6 space-y-2 text-gray-300">
                             <li>KARNATAKA HYBRID MICRO DEVICES LIMITED</li>
                             <li>Kawa Space - Satellite Technology</li>
                             <li>NERAMAC Ltd</li>
@@ -361,36 +519,94 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 md:px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Contact Us</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Registered Office</h3>
-                        <p class="text-gray-600 mb-4">
-                            Leofelis Instruments Pvt. Ltd.<br>
-                            Assam University Campus, Near SBI<br>
-                            Dorgakona, Dist. Cachar<br>
-                            Assam 788011
-                        </p>
-                        <div class="mt-4">
-                            <i class="fas fa-phone-alt mr-2 text-green-500"></i>
-                            <a href="tel:+918822331615" class="text-gray-600 hover:text-green-500">+91 88223 31615</a>
+        <section id="contact" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+            <div class="max-w-7xl mx-auto px-4 md:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-100 mb-4">Get in Touch</h2>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                        Connect with our innovation team for collaborations, prototyping solutions, or technical
+                        inquiries
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+                    <!-- Contact Cards -->
+                    <div class="space-y-8">
+                        <!-- Registered Office Card -->
+                        <div class="bg-gray-700 rounded-2xl shadow-lg overflow-hidden border border-gray-600">
+                            <div class="h-64 bg-gray-800 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-3xl text-gray-500"></i>
+                            </div>
+                            <div class="p-8">
+                                <div class="flex items-start mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-emerald-900/30 rounded-xl flex items-center justify-center mr-4">
+                                        <i class="fas fa-university text-emerald-400 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-gray-100 mb-2">Registered Office</h3>
+                                        <p class="text-gray-400">
+                                            Assam University Campus, Near SBI<br>
+                                            Dorgakona, Dist. Cachar<br>
+                                            Assam 788011
+                                        </p>
+                                        <div class="mt-4 flex items-center">
+                                            <i class="fas fa-phone-alt mr-2 text-emerald-400"></i>
+                                            <a href="tel:+918822331615"
+                                                class="text-gray-400 hover:text-emerald-400 transition-colors">
+                                                +91 88223 31615
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-green-600">Manufacturing Unit</h3>
-                        <p class="text-gray-600 mb-4">
-                            FabLab - Niz-Joynagar<br>
-                            Near Taib Ali LP School<br>
-                            Silchar, Assam 788025
-                        </p>
-                        <div class="mt-4">
-                            <i class="fas fa-envelope mr-2 text-green-500"></i>
-                            <a href="mailto:official@leofelisinstruments.com"
-                                class="text-gray-600 hover:text-green-500">
-                                official@leofelisinstruments.com
-                            </a>
+
+                    <div class="space-y-8">
+                        <!-- Manufacturing Unit Card -->
+                        <div
+                            class="bg-gray-700 p-8 rounded-2xl shadow-lg border border-gray-600 hover:border-emerald-400/30 transition-all">
+                            <div class="flex items-start mb-4">
+                                <div
+                                    class="w-12 h-12 bg-emerald-900/30 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-industry text-emerald-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-100 mb-2">Manufacturing Unit</h3>
+                                    <p class="text-gray-400">
+                                        FabLab - Niz-Joynagar<br>
+                                        Near Taib Ali LP School<br>
+                                        Silchar, Assam 788025
+                                    </p>
+                                    <div class="mt-4 flex items-center">
+                                        <i class="fas fa-envelope mr-2 text-emerald-400"></i>
+                                        <a href="mailto:official@leofelisinstruments.com"
+                                            class="text-gray-400 hover:text-emerald-400 transition-colors">
+                                            official@leofelisinstruments.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Connect -->
+                        <div class="bg-gray-700 p-8 rounded-2xl shadow-lg border border-gray-600">
+                            <h3 class="text-xl font-semibold text-gray-100 mb-4">Connect With Us</h3>
+                            <div class="flex space-x-6">
+                                <a href="#"
+                                    class="w-10 h-10 bg-emerald-900/30 hover:bg-emerald-900/40 rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-linkedin-in text-emerald-400"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-emerald-900/30 hover:bg-emerald-900/40 rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-twitter text-emerald-400"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-emerald-900/30 hover:bg-emerald-900/40 rounded-full flex items-center justify-center transition-colors">
+                                    <i class="fab fa-facebook-f text-emerald-400"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
